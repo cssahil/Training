@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Dynamic Pseudo Class selectors */
+        /* input:hover{
+            background-color: crimson;
+        }
+        input:focus{
+            background-color: yellow;
+        }
+        input:active{
+            background-color: green;
+        }
+        
+        /* lang selector : selects elements with a lang attribute assigned */
+        p:lang(es){
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        p:lang(fr){
+            font-family: monospace;
+        }
+        p:lang(en){
+            font-family: Arial, Helvetica, sans-serif;
+        } */
+
+        /* adjecent sibling = (selects only one) and general sibling =(selects all below) selectors */
+        /* ul+p{
+            border: 5px dotted orangered;
+        } */
+        /* ul~p{
+            border: 5px dotted orangered;
+        } */
+
+        /* Universal Selectors = selects all */
+        body *{
+            border: 1px solid orangered;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <br>
+    <br>
+    <input type="text">
+    <br>
+    <br>
+    <input type="text">
+    <p lang="es">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore doloremque illo distinctio veniam molestiae molestias aliquam amet quod, laborum, dignissimos reiciendis esse labore at dolorem tempora nulla aliquid qui dicta?
+    </p>
+    <p lang="fr">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore doloremque illo distinctio veniam molestiae molestias aliquam amet quod, laborum, dignissimos reiciendis esse labore at dolorem tempora nulla aliquid qui dicta?
+    </p>
+    <p lang="en">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore doloremque illo distinctio veniam molestiae molestias aliquam amet quod, laborum, dignissimos reiciendis esse labore at dolorem tempora nulla aliquid qui dicta?
+    </p>
+    <ul>
+        <li>List Item</li>
+    </ul>
+    <p lang="es">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore doloremque illo distinctio veniam molestiae molestias aliquam amet quod, laborum, dignissimos reiciendis esse labore at dolorem tempora nulla aliquid qui dicta?
+    </p>
+    <p lang="fr">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore doloremque illo distinctio veniam molestiae molestias aliquam amet quod, laborum, dignissimos reiciendis esse labore at dolorem tempora nulla aliquid qui dicta?
+    </p>
+    <p lang="en">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore doloremque illo distinctio veniam molestiae molestias aliquam amet quod, laborum, dignissimos reiciendis esse labore at dolorem tempora nulla aliquid qui dicta?
+    </p>
+</body>
+</html>
