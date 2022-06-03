@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+        label{
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        #storeBtn{
+            margin-left: 105px;
+        }
+    </style>
+    <script>
+       function setData(){
+           localStorage.name = document.getElementById("ip_uname").value;
+           localStorage.city = document.getElementById("ip_ucity").value;
+           localStorage.state = document.getElementById("ip_ustate").value;
+       }
+       function getData(){
+           document.getElementById("uname").innerText = localStorage.name;
+           document.getElementById("ucity").innerText = localStorage.city;
+           document.getElementById("ustate").innerText = localStorage.state;
+       }
+       //-------------------------------------------------------------------------
+       function getLSLength(){
+           document.getElementById("log").innerText = "there are "+localStorage.length+" items stored";
+       }
+       function getLSItem(){
+          document.getElementById("log").innerText = "name's value is "+localStorage.getItem("name");
+       }
+       function setLSItem(){
+          localStorage.setItem("name","Ironman");
+          document.getElementById("log").innerText = "name is updated";
+        }
+        function removeLSName(){
+          localStorage.removeItem("name");
+          document.getElementById("log").innerText = "name is removed";
+       }
+       function clearLS(){
+          localStorage.clear();
+          document.getElementById("log").innerText = "user info removed";
+       }
+       function getLSAt2(){
+         // document.getElementById("log").innerText = "value at key 2 is "+localStorage.key(2);
+          document.getElementById("log").innerText = "key 2's name is "+ localStorage.key(2)+" value is "+localStorage.getItem(localStorage.key(2));
+       }
+    </script>
+</head>
+<body>
+    <h2>Store User Info</h2>
+    <div>
+        <label for="ip_uname">User Name</label>
+        <input id="ip_uname" type="text">
+    </div>
+    <div>
+        <label for="ip_ucity">User City</label>
+        <input id="ip_ucity" type="text">
+    </div>
+    <div>
+        <label for="ip_ustate">User State</label>
+        <input id="ip_ustate" type="text">
+    </div>
+    <button id="storeBtn" onclick="setData()"> Store User Info </button>
+    <hr>
+    <h2>Get User Info</h2>
+    <ul>
+        <li>User Name  : <span id="uname"></span></li>
+        <li>User City  : <span id="ucity"></span></li>
+        <li>User State :  <span id="ustate"></span></li>
+    </ul>
+    <button onclick="getData()">Get User Data</button>
+    <hr>
+    <button onclick="getLSLength()">Get Length</button>
+    <button onclick="getLSItem()">Get Item value of name</button>
+    <button onclick="setLSItem()">Set Item value for name</button>
+    <button onclick="removeLSName()">Remove Item name</button>
+    <button onclick="clearLS()">Clear</button>
+    <button onclick="getLSAt2()">Get Item at 2nd key</button>
+    <hr>
+    <h1 id="log"></h1>
+</body>
+</html>
