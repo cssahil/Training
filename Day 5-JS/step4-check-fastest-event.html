@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function fun1(){
+            document.getElementsByTagName("h1")[0].innerText += "Fun1\n";
+            console.log("Fun1 was called on Body Onload");
+        }
+        window.onload = fun1;
+
+        function fun2(){
+            document.getElementsByTagName("h1")[0].innerText += "Fun2\n";
+            console.log("Fun2 was called on Window Onload");
+        }
+        window.addEventListener('load',fun2);
+
+        function fun3(){
+            document.getElementsByTagName("h1")[0].innerText += "Fun3\n";
+            console.log("Fun3 was called on Document DOMContentLoaded");
+        }
+        document.addEventListener('DOMContentLoaded',fun3);
+
+        // speed = DOM > window > body
+
+    </script>
+</head>
+<body onload="fun1()">
+    <h1></h1>
+</body>
+</html>

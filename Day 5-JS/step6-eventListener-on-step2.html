@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            border: 1px solid blue;
+            width: 900px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        /* conatiner styles which will contain all small boxes */
+        .container{
+            width: 880px;
+            height: 400px;
+            background-color: red;
+            /* disable flex or else it will print only to left and wont go down */
+            /* display: flex; */ 
+            /* overflow how the content should be hidden if they are overflowing */
+            overflow: auto; 
+            margin: auto;
+            margin-bottom: 30px;
+        }
+
+        /* the box styles which is created inside container */
+        .container div{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(230, 210, 174);
+            margin: 10px;
+            float: left;
+            text-align: center;
+            line-height: 150px;
+            /* font size kept as 90px so the line height matches with box height */
+            font-size: 90px;
+        }
+
+        .container div:hover{  /* hover = pseudo class selector */
+            cursor: pointer;
+            background-color: yellow;
+            box-shadow: 10px 10px 5px black; /* (x,y,transparency,spread,color) */
+        }
+
+        .btnbox{
+            /* 20+40+300 */
+            width: 680px;
+            height: 100px;
+            /* background-color: orange; */
+            text-align: center;
+            line-height: 100px;
+            margin: auto;
+        }
+
+        button{
+            margin: auto;
+            /* instead of float we will display inline block */
+            display: inline-block;
+            padding: 10px;
+            font-size: 20px;
+            width: 200px;
+            /* float: left; */
+        }
+
+    </style>
+
+    <script>
+        
+        var eventcount = 0;
+        var count = 1;
+
+        function createBox(){
+            var box = document.createElement("div");
+            box.innerText = count;  // text inside the square box
+            document.getElementsByClassName("container")[0].appendChild(box);
+            count++;
+        };
+
+        // window.onload = function() {
+
+        document.addEventListener("DOMContentLoaded", function(){
+            document.getElementsByClassName("container")[0].addEventListener("click", function(evt){
+                if(evt.target.getAttribute("class")=="container"){
+                    alert("you clicked on the container");
+                }else{
+                    document.getElementsByClassName("container")[0].removeChild(evt.target);
+                }
+            });
+        
+
+            document.getElementsByTagName("button")[0].onclick = function(){
+                                    // alert("you clicked the button");
+                                    // to use 1 box at one click just reduce 101 to 2 and change button name
+                                    // Add 100 box at one click we use for loop until i<101
+                for(var i=1; i < 101; i++){
+                    createBox();
+                };
+            }
+
+            document.getElementsByTagName("button")[1].addEventListener("click", function(){
+                            // alert("you clicked the button");
+                var box = document.getElementsByClassName("container")[0].firstChild;
+                            // added if because = if no box added then clicking on remove btn will give error
+                if (box) { 
+                    document.getElementsByClassName("container")[0].removeChild(box);
+                    count--;
+                }
+            });
+
+            document.getElementsByTagName("button")[2].addEventListener("click", function(){
+                            // alert("you clicked the button");
+                var box = document.getElementsByClassName("container")[0].lastChild;
+                            // added if because = if no box added then clicking on remove btn will give error
+                if (box) { 
+                    document.getElementsByClassName("container")[0].removeChild(box);
+                    count--;
+                }
+            });
+
+            document.getElementsByTagName("button")[3].addEventListener("click", function(){
+                alert("Number of Events attached is "+eventcount)
+            });
+        });
+            
+        
+    </script>
+    
+</head>
+<body>
+    <div class="btnbox">
+        <button>Add 100 Boxes</button>
+        <button>Remove First Box</button>
+        <button>Remove Last Box</button>
+    </div>
+    <!-- <button>Add Box</button> -->
+
+    <div class="container"></div>
+    <button>Event Count</button>
+</body>
+</html>

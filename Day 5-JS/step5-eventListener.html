@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function clickHandler(event){
+            console.log(event); // to get more details about event
+            document.getElementById("log").innerText += "you clicked the "+event.target.innerText+" \n";
+        };
+
+        function init(){
+            document.getElementsByTagName("button")[0].addEventListener("click", clickHandler);
+            document.getElementsByTagName("button")[1].addEventListener("click", clickHandler);
+            document.getElementsByTagName("button")[2].addEventListener("click", clickHandler);
+            document.getElementsByTagName("button")[3].addEventListener("click", clickHandler);
+            document.getElementsByTagName("button")[4].addEventListener("click", clickHandler);
+
+        };
+        document.addEventListener("DOMContentLoaded", init);  
+    </script>
+</head>
+<body>
+    <button>Click Me Button # 1</button>
+    <button>Click Me Button # 2</button>
+    <button>Click Me Button # 3</button>
+    <button>Click Me Button # 4</button>
+    <button>Click Me Button # 5</button>
+    <hr>
+    <h1 id="log"></h1>
+</body>
+</html>
