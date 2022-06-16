@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+
+            
+            //console.log(document.getElementsByTagName("body")[0].childNodes.length); // total number of tag in body
+            //console.log(document.getElementsByTagName("body")[0].childNodes[0].nodeName);  // what inside first li
+            //console.log(document.getElementsByTagName("body")[0].children.length); // child
+            //console.log(document.getElementsByTagName("body")[0].children[0].tagName); // UL as ex.
+            
+            // text nodes = innerText
+            // element nodes = innerHTML
+            
+
+            //console.log(document.body.children[0]); // whatever in body
+            //document.body.children[0].innerHTML = "Selected"; // shows Selected text on page
+
+            // change text inside li tag from script js
+            // use = for ex a product out of stock then js will find out by some conditions
+            document.body.children[0].children[0].innerHTML = "Selected1";
+            document.body.children[0].children[1].innerHTML = "Selected2";
+            document.body.children[0].children[2].innerHTML = "Selected3";
+            document.body.children[0].children[3].innerHTML = "Selected4";
+            document.body.children[0].children[4].innerHTML = "Selected5";
+        
+        };
+    </script>
+</head>
+<body>
+    <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 5</li>
+    </ul>
+</body>
+</html>
