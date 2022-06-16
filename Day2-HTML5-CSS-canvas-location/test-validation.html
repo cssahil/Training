@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <style>
+        form{
+            width:280px;
+            border: 1px solid red;
+        }
+        #formtitle{
+            margin-left: 105px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        label{
+            width: 100px;
+            display: inline-block;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        button{
+            margin-left: 105px;
+            margin-top: 50px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="get">
+        <div id="formtitle">New User Registeration</div>
+        <div>
+            <label for="uage">User Age</label>
+            <input required min="18" max="90" name="uage" step="0.5" id="uage" type="number"/>
+        </div>
+        <div>
+            <label for="uemail">User Email</label>
+            <input required name="uemail" pattern="\S+@\S+\.\S+" id="uemail"/>
+        </div>
+        <div>
+            <label for="uphone">User Phone</label>
+            <input required name="uphone" title="###-########" pattern="\d{3}-\d{8}" id="uphone" type="tel"/>
+        </div>
+        <button type="submit" onclick="init()">Register</button>
+    </form>
+
+    <script>
+        function init(){
+            if (document.getElementById("uage").value == ""){
+                document.getElementById("uage").setCustomValidity("You must enter your age");
+            }
+            else if (document.getElementById("uage").value < 18){
+                document.getElementById("uage").setCustomValidity("Below 18 not allowed");
+            }
+            else if (document.getElementById("uage").value > 90){
+                document.getElementById("uage").setCustomValidity("Above 90 not allowed");
+            }
+            else {
+                document.getElementById("uage").setCustomValidity("");
+            }
+            if (document.getElementById("uemail").value == ""){
+                document.getElementById("uemail").setCustomValidity("You must enter your email");
+            }
+            else {
+                document.getElementById("uemail").setCustomValidity("");
+            }
+            if (document.getElementById("uphone").value == ""){
+                document.getElementById("uphone").setCustomValidity("You must enter your phone number");
+            }
+            else {
+                document.getElementById("uphone").setCustomValidity("");
+            }
+        }
+    </script>
+    
+</body>
+</html>
