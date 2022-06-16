@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX foundation</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 300px;
+            background-color: darkslategray;
+            color: azure;
+            font-family: 'Trebuchet MS';
+            text-align: justify;
+            padding: 10px;
+            margin: 10px auto;
+            overflow: auto;
+        }
+        button{
+            display: block;
+            margin: auto;
+            width: 150px;
+            padding: 10px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+
+        // readystate : uninitiliase = 0, open = 1, sent = 2, receive = 3, load = 4
+
+        var xhr = new XMLHttpRequest(); //initialise
+
+        document.addEventListener("DOMContentLoaded", init); 
+        //DOMContentLoaded = this event fires when initial HTML doc has been completely loaded and parsed, without waiting for css,images to finsih loading (make faster) 
+
+        function init(){     // find the button and listen the event click and assign task to do as clickhandler 
+            document.getElementsByTagName("button")[0].addEventListener("click", clickHandler);
+        }
+
+        function clickHandler(){             // after click send
+            xhr.open("get","data/data.json");  // open the json
+            xhr.send();                        // send the data from json
+        }
+
+        xhr.addEventListener("readystatechange", statechangehandler); // evt is fired = when readyState attribute of doc is changed
+
+        function statechangehandler(evt){  // handle the evt when state changes
+            console.log(evt.target);        // print the detials of every state
+            // console.log(xhr);            // alternate way
+
+            if(evt.target.status === 200 && evt.target.readyState === 4){  // after everything done = status is 200 && readyState = 4 : then display the text
+                // ---prints all arrays from JSON in console window
+                // console.log(JSON.parse(evt.target.responseText).hl);
+
+                // ---loop to go repeatedly to find out only title tag inside JSON one by one in checking in each array inside data.json
+                var heroes = JSON.parse(evt.target.responseText).hl; // initilaise heroes
+
+                for (var i = 0; i < heroes.length; i++){
+
+                    // --- this will print in console window
+                    // console.log(heroes[i].title);  
+
+                    // ---this will print inside the container on html that's why we added div
+                    document.getElementsByClassName("container")[0].innerHTML += "<div>"+heroes[i].title+"</div>";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <button>Load Data</button>
+    <div class="container"></div>
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+          $("button").on("click", function(){
+            $.ajax({
+                url : "data/data.json",
+                success : function(data,status,jqxhr){
+                   $(data.hl).each(function(idx, val){
+                    $("#hero").append("<option>"+val.title+"</option>")
+                   })
+                },
+                error : function(jqxhr,status,error){
+                    console.log(error)
+                }
+           })
+          })
+        })
+    </script>
+</head>
+<body>
+    <button>Get Data</button>
+    <select id="hero">
+        <option value="#">Select your fav hero here</option>
+    </select>
+</body>
+</html>

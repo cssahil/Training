@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+    <script>
+
+        var hero = {
+            title : "Ironman",
+            firstName : "Tony",
+            lastName : "Stark",
+            power : 7
+        };
+
+        // var temphero = hero;
+
+        // // console.log(hero.tilte);
+        // // console.log(temphero.title);
+
+        // temphero.title = "Ironmonger";
+
+        // console.log(temphero.title);
+        // console.log(hero.title);
+
+        // destructuring the above method by making "Ironman" to hero_title
+        var {   title : hero_title, 
+                power : hero_power, 
+                firstName : hero_firstname,
+                lastName : hero_lastname } = hero;
+
+        // console.log(hero.title);
+        // console.log(hero_title);
+
+        hero_title = "Ironmonger";
+        hero_power = 9;
+
+        console.log(hero.title);
+        console.log(hero_title);
+
+        console.log(hero.power);
+        console.log(hero_power);
+
+        //-----------
+
+        // Array Destructuring
+
+        var heroes = ['Batman','Superman','Aquaman'];
+        var [firsthero, secondhero, thirdhero] = heroes;
+
+        console.log(firsthero);
+        console.log(heroes[0]);
+
+        // Array Destructuring - es6 method ...hero
+
+        var heroes = ['Batman','Superman','Aquaman'];
+        var [firsthero, secondhero, thirdhero] = heroes;
+
+        var temphero = {...hero};
+        console.log(temphero);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
