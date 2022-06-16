@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX foundation</title>
+    <style>
+
+        body {
+            border: 1px solid black;
+            width: 800px;
+            height: 300px;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        button{
+            display: block;
+            margin: auto;
+            width: 150px;
+            padding: 10px;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        label{
+            margin-left: 305px;
+            font-size: 25px;
+        }
+        
+        select{
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+    </style>
+
+    <script>
+
+        // readystate : uninitiliase = 0, open = 1, sent = 2, receive = 3, load = 4
+
+        var xhr = new XMLHttpRequest(); //initialise
+                
+        //DOMContentLoaded = this event fires when initial HTML doc has been completely loaded and parsed, without waiting for css,images to finsih loading (make faster) 
+        document.addEventListener("DOMContentLoaded", loadHandler); 
+
+        function loadHandler(){             // after click send
+            xhr.open("get","data/data.json");  // open the json
+            xhr.send();                        // send the data from json
+        }
+
+        xhr.addEventListener("readystatechange", statechangehandler); // evt is fired = when readyState attribute of doc is changed
+
+        function statechangehandler(evt){  // handle the evt when state changes
+
+            if(evt.target.status === 200 && evt.target.readyState === 4){  // after everything done = status is 200 && readyState = 4 : then display the text
+
+                // ---loop to go repeatedly to find out only title tag inside JSON one by one in checking in each array inside data.json
+                var heroes = JSON.parse(evt.target.responseText).hl; // initilaise heroes
+
+                for (var i = 0; i < heroes.length; i++){
+
+                    // ---this will print inside the container on html that's why we added div
+                    document.getElementById("hero").innerHTML += "<option value=''>"+heroes[i].title+"</option>";
+
+                }
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <!-- <button>Load Data</button> -->
+
+    <label for="title-select">Choose your Hero :</label>
+
+    <select id="hero" id="title-select">
+        <option value="#">-- Choose your Option --</option>
+    </select>
+
+
+
+    <!-- <div class="container"></div>  -->
+</body>
+</html>
+
