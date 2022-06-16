@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template String</title>
+    <script>
+
+        // ----way = 1
+        /*          
+        let mystring = "Lorem ipsum dolor sit amet consectetur adipisicing elit. ";
+            mystring += "Neque, saepe autem! In sint ad magni reprehenderit enim ";
+            mystring += "molestiae, doloremque magnam porro illo aspernatur? ";
+            mystring += "Nam accusantium consequuntur repellat eius distinctio consectetur."; 
+        document.addEventListener("DOMContentLoaded", ()=>document.getElementById("log").innerText = mystring);
+        */
+        
+
+        // ------way = 2
+        /*         
+        let mystring =  "Lorem ipsum dolor sit amet consectetur adipisicing elit. "+
+                        "Neque, saepe autem! In sint ad magni reprehenderit enim "+
+                        "molestiae, doloremque magnam porro illo aspernatur? "+
+                        "Nam accusantium consequuntur repellat eius distinctio consectetur.";
+
+        document.addEventListener("DOMContentLoaded", ()=>document.getElementById("log").innerText = mystring);
+          */
+
+        // ----way = 3
+        let myname = "Vijay";
+        let mycompany = "IBM";
+
+        let mystring = `Lorem ${ myname }, dolor sit amet consectetur adipisicing elit.
+                        Sunt eligendi veniam repellat nemo pariatur rerum dolorem! 
+                        Perspiciatis officiis, necessitatibus alias at ullam quis 
+                        dolorem ad odit, exercitationem dicta corporis optio?
+                        
+                        Lorem ${ mycompany } dolor sit amet consectetur adipisicing elit. 
+                        Laboriosam impedit itaque aspernatur reprehenderit consectetur 
+                        ipsam sequi eius quod repudiandae quam, unde, commodi esse! 
+                        Itaque doloribus numquam officia? Iusto, laborum doloremque.`
+
+        document.addEventListener("DOMContentLoaded", ()=>document.getElementById("log").innerText = mystring);
+    </script>
+</head>
+<body>
+   <p id="log"></p>
+</body>
+</html>

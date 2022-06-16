@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extended Objects</title>
+    <script>
+        
+        //--- 1. check type of object
+        // var obj1 = new Object();
+        // var obj2 = {};
+        // var obj3 = Object.create(null);
+        // console.log(typeof obj1, typeof obj2, typeof obj3); 
+        
+        //----------- 
+
+        //--- 2. updating property of object from outside 
+        // var hero = {
+        //     title : "Batman",
+        //     power : 7
+        // };
+        // console.log(hero); // {title:Batman, power:7}
+        // console.log(hero.title); // Batman
+        // hero.title = "Joker";
+        // console.log(hero.title); // ??? Joker
+        
+        //----------- 
+
+        //--- 3. we can also define property of object from outside
+        // var hero = Object.create(null);
+        //     Object.defineProperty(hero, "title", { value : "Batman"});
+        //     Object.defineProperty(hero, "power", { value : 7});
+        // console.log(hero); // {title: 'Batman', power: 7}
+        // console.log(hero.title); // Batman
+        // hero.title = "Joker"; // has no effect because the properties are immutable
+        // console.log(hero.title); // ??? = this time not changed
+
+
+        //----------- 
+        
+        //--- 4. value, writable, enumerable, configurable, set, get
+        // value        = any valid value num,obj,func | default undefined
+        // writable     = true : value of property may be changed with assign op (=) | default false
+        // enumerable   = true : print the values | false : nothing will be printed while enumerating in for loop
+        // configurable = true :
+        // set          = func which serve as getter for prop
+        // get          = func which serve as setter for prop
+
+
+        var hero = Object.create(null);
+            Object.defineProperty(hero, "title", { value : "Batman", writable : true, enumerable : true, configurable :true  });
+            Object.defineProperty(hero, "power", { value : 7 , writable : true });
+            Object.defineProperty(hero, "accessPower", { 
+                get : function(){   // get and set should work together
+                    return this.power 
+                }, 
+                set : function(npower){
+                    this.power = npower;
+                } });
+            
+        console.log(hero); // {title: 'Batman', power: 7}
+        console.log(hero.title); // Batman
+        hero.title = "Joker"; // has effect because writable : true
+        console.log(hero.title); // ??? 
+        
+        // ---print property and hero[prop]
+        for(let prop in hero){
+            console.log(prop, hero[prop]); // title Joker
+        };
+        
+        //---setting prop and hero[prop] to be non-writable and non-enumerable
+        Object.defineProperty(hero, "title", { writable : false, enumerable : false  });
+
+        for(let prop in hero){
+            console.log(prop, hero[prop]);  // nothing prints because, enumerable : false
+        };
+        
+        console.log(hero.title); // Joker : prints because enumerable works in for loop
+        hero.title = "Superman";
+        console.log(hero.title); // Joker : because writable false
+
+        console.log(hero.accessPower);
+        hero.accessPower = 8;      // power updated
+        console.log(hero.accessPower);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

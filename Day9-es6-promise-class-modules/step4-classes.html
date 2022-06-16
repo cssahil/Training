@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+    <script>
+        //-- 1. ES5 properties should be defined in the constructor
+        //-- properties were always public
+        
+        // class Hero{
+        //     constructor(){
+        //         this.title = "Batman";
+        //         this.power = 7;
+        //         this.firstname = "Bruce";
+        //         this.lastname = "Wayne";
+        //         this._mission = "My Secret Mission";
+        //     }
+        //     fullname(){
+        //         return this.firstname+" "+this.lastname;
+        //     }
+        // }
+        
+        //----------
+
+        //-- 2. ES6 properties can be defined outside the constructor
+        //-- properties were always public
+        
+        // class Hero{
+        //     title = "Batman";
+        //     power = 7;
+        //     firstname = "Bruce";
+        //     lastname = "Wayne";
+        //     _mission = "My Secret Mission";
+        //     constructor(){
+        //     }
+        //     fullname(){
+        //         return this.firstname+" "+this.lastname;
+        //     }
+        // }
+        
+        //-----------
+        
+        //-- 3. ES7 properties can be public or private
+        class Person{
+            canwalk = "default can walk value";
+            constructor(ncw){
+                this.canwalk = ncw;
+            }
+        }
+
+        class Hero extends Person{
+            title = "";
+            power = 0;
+            firstname = "";
+            lastname = "";
+            #mission = "My Secret Mission";
+            static version = 101;
+            constructor(htitle, hpower, hfname, hlname){
+                super('yes i can walk');
+                this.title = htitle;
+                this.power = hpower;
+                this.firstname = hfname;
+                this.lastname = hlname;                
+            }
+
+            fullname(){
+                return this.firstname+" "+this.lastname;
+            }
+            get mission(){
+                return this.#mission;
+            }
+            set mission(nmission){
+                this.#mission = nmission;
+            }
+        }
+        
+        let hero = new Hero("Ironman", 7, "Tony","Stark");
+        console.log(Hero.version);
+        console.log(hero.mission);
+        console.log(hero.fullname());
+        console.log(hero.canwalk); 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
