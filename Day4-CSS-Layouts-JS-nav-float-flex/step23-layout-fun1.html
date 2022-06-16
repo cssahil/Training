@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'verdana';
+            font-size: 18px;
+            width: 1160px; /* double of middle element */
+            height: 600px;
+        }
+        /* header{
+            background-color: rgb(240, 213, 146);
+        }
+        footer{
+            height: 50px;
+            background-color: rgb(240, 213, 146);
+            line-height: 50px;
+            text-align: center;
+        }
+        main{
+            border: 1px solid red;
+        } */
+        /* section{
+            background-color: silver;
+            padding : 5px;
+        } */
+        article{
+            /* background-color: rgb(252, 241, 215); */
+            text-align: justify;
+            width: 250px;
+            position: absolute;
+            padding: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 10px;
+            /* border: 5px solid black; */
+        }
+
+        article:nth-child(1){
+            background-color: yellow;
+            border: 5px solid blue;
+            top: 0px;
+            left: 0px;
+        }
+
+        /* width 250 + padding 20 + margin 10+10 ( left double + right double ) */
+        article:nth-child(2){
+            background-color: orange;
+            border: 5px solid rgb(185, 159, 159);
+            top: 0px;
+            left: 290px;
+        }
+
+        /* add 290 = 290+290 = 580 */
+        article:nth-child(3){
+            background-color: orangered;
+            border: 5px solid black;
+            top: 0px;
+            left: 580px;
+        }
+
+        /* add 290 = 580+290 = 870 */
+        article:nth-child(4){
+            background-color: red;
+            border: 5px solid yellow;
+            top: 0px;
+            left: 870px;
+        }
+    </style>
+</head>
+<body>
+<!--     (header+(nav>ul>li>a{link item $}*5)+(main>section>header+article*3{Lorem})+(aside>header)+footer) -->
+<!-- <header>
+    <h1>IBM India</h1>
+</header> -->
+<main>
+    <section>
+        <!-- <header>
+            About IBM
+        </header> -->
+        <article>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates dolor saepe pariatur porro, asperiores ut vel suscipit eveniet vero earum quos maxime officiis, repellendus ratione quis voluptas deserunt sequi. Beatae.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id unde debitis laudantium explicabo quam porro tenetur placeat nulla provident incidunt exercitationem tempore magnam commodi numquam, error eaque vitae repellat omnis.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate beatae rem accusantium harum magnam, tempore quo sequi repellendus error laboriosam aperiam, saepe ratione molestiae quod unde at consequatur? Unde, numquam.
+        </article>
+        <article>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex nisi eveniet nihil velit. Dolor quae, facere unde sapiente facilis aperiam modi nostrum consequuntur qui similique pariatur, eligendi, voluptatum quis!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae voluptates ipsum exercitationem ipsa consequuntur illum dolor cumque, animi sed earum nemo perferendis, deserunt, iure consectetur similique veniam obcaecati cupiditate!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga id, voluptatum, soluta quam non quaerat, aut magni laudantium enim consequuntur laboriosam odio dolorem tenetur totam nihil consequatur quis blanditiis dicta!
+        </article>
+        <article>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam error laboriosam aut quia saepe optio explicabo dicta! Eum accusamus, sint magni blanditiis sit reiciendis quibusdam magnam qui voluptas sequi recusandae!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, ut! Dicta expedita, voluptatum esse dolores placeat, nulla numquam obcaecati minima asperiores corrupti sunt. Reiciendis incidunt saepe possimus accusantium, aperiam inventore?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, quibusdam! Necessitatibus vero aliquam explicabo adipisci, similique praesentium asperiores nesciunt suscipit distinctio, vitae excepturi possimus perferendis molestiae magnam animi? Soluta, ipsam?
+        </article>
+        <article>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam error laboriosam aut quia saepe optio explicabo dicta! Eum accusamus, sint magni blanditiis sit reiciendis quibusdam magnam qui voluptas sequi recusandae!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, ut! Dicta expedita, voluptatum esse dolores placeat, nulla numquam obcaecati minima asperiores corrupti sunt. Reiciendis incidunt saepe possimus accusantium, aperiam inventore?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, quibusdam! Necessitatibus vero aliquam explicabo adipisci, similique praesentium asperiores nesciunt suscipit distinctio, vitae excepturi possimus perferendis molestiae magnam animi? Soluta, ipsam?
+        </article>
+    </section>
+</main>
+<!-- <aside>
+    <header>
+        Aside Tag
+    </header>
+    <article>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate velit error quod quam impedit. Dicta in et quaerat, aliquid, ab veritatis dolore animi ipsa non, fugit consectetur sit mollitia nihil?
+    </article>
+</aside>
+<footer>
+    <h3>
+        Copyrights Reserved by IBM India &copy;
+    </h3>
+</footer> -->
+</body>
+</html>
